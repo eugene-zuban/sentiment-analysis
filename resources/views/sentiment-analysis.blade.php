@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <h1>Sentiment Analysis</h1>
+    <div class="container" role="main">
+        <div class="row">
+            <div class="panel panel-default">Add your review</div>
+            <div class="panel-body">Here</div>
+        </div>
     </div>
 @endsection
