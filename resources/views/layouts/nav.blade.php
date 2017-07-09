@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="{{ url('/') }}">Sentiment Analysis</a>
+            <a class="navbar-brand" href="{{ url('/') }}">Machine Learning: Sentiment Analysis</a>
         </div>
     </div>
 </nav>
