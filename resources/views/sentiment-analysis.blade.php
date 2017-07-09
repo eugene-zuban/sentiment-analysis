@@ -5,5 +5,7 @@
         <div class="page-header">
             <h1>Movie classifier<small> based on logistic regression model.</small></h1>
         </div>
+
+        <movie-review></movie-review>
     </div>
 @endsection
