@@ -2,9 +2,8 @@
 
 @section('content')
     <div class="container" role="main">
-        <div class="row">
-            <div class="panel panel-default">Add your review</div>
-            <div class="panel-body">Here</div>
+        <div class="page-header">
+            <h1>Movie classifier<small> based on logistic regression model.</small></h1>
         </div>
     </div>
 @endsection
