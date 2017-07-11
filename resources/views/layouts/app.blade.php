@@ -7,9 +7,10 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>Machine Learning: Movie Classifier</title>
 
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+        <link rel="icon" type="image/png" href="favicon.png">
     </head>
 
     <body>
