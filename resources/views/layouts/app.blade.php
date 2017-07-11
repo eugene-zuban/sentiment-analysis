@@ -7,7 +7,7 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Machine Learning: Movie Classifier</title>
+        <title>{{ config('app.name', 'Machine Learning: Movie Classifier') }}</title>
 
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
         <link rel="icon" type="image/png" href="favicon.png">
