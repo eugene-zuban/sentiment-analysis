@@ -8,6 +8,8 @@
                     <h1>Movie classifier<small> based on logistic regression model.</small></h1>
                 </div>
 
+                <alert></alert>
+
                 <movie-review></movie-review>
             </div>
         </div>
