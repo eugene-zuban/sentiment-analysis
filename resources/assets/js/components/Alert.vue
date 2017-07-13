@@ -14,13 +14,25 @@
       }
     },
 
+    created() {
+      window.events.$on(
+        'showAlert', data => this.showAlert(data)
+      );
+    },
+
     methods: {
-      showAlert() {
+      showAlert(data) {
+        this.alertMessage = data.message;
+        this.alertType = data.type;
         this.isAlertActive = true;
+
+        this.hideAlert(5000);
       },
 
-      hideAlert() {
-        this.isAlertActive = false;
+      hideAlert(delay = 0) {
+        setTimeout(() => {
+          this.isAlertActive = false;
+        }, delay);
       }
     }
   }
