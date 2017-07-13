@@ -26,17 +26,15 @@
 
     methods: {
       sendReview() {
-        // TODO implementation
-      },
-
-      sendReview() {
         axios.post('/api/movie-review?XDEBUG_SESSION_START=1', {review: this.review})
           .then((response) => {
             console.log(response);
           })
           .catch((error) => {
-            if (error.response) {
-              console.log(error.response);
+            if (error.response.data.review) {
+              window.showAlert(_.head(error.response.data.review), 'danger');
+            } else {
+              window.showAlert(error.response.statusText, 'danger');
             }
           })
       }
