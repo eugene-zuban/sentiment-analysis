@@ -1,6 +1,8 @@
 <template>
   <div>
-    <review-form v-if="isReviewStage()"></review-form>
+    <review-form v-if="isCurrentStage('init')" v-on:changeStage="setStage"></review-form>
+
+    <div v-if="isCurrentStage('result')">Result stage.</div>
   </div>
 </template>
 
@@ -15,17 +17,17 @@
     },
 
     methods: {
-      isReviewStage() {
-        return this.stage == 'review';
+      isCurrentStage(checkingStage) {
+        return this.stage == checkingStage;
       },
 
-      activateReviewForm() {
-        this.stage = 'review';
+      setStage(stage) {
+        this.stage = stage;
       }
     },
 
     created() {
-      this.activateReviewForm();
+      this.setStage('init');
     },
 
     components: { ReviewForm }
