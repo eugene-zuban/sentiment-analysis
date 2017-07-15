@@ -10,7 +10,7 @@
                     placeholder="Movie review minimum 15 characters length" v-model="review"></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary">Send Review</button>
+        <button type="submit" class="btn btn-primary" :disabled="isSubmitDisabled()">Send Review</button>
       </form>
     </div>
   </div>
@@ -37,6 +37,10 @@
               window.showAlert(error.response.statusText, 'danger');
             }
           })
+      },
+
+      isSubmitDisabled() {
+        return this.review.length < 15;
       }
     }
   }
