@@ -26,7 +26,7 @@
 
     methods: {
       sendReview() {
-        axios.post('/api/movie-review?XDEBUG_SESSION_START=1', {review: this.review})
+        axios.post('/api/movie-review', {review: this.review})
           .then((response) => {
             console.log(response.data);
             this.$emit('changeStage', 'result');
