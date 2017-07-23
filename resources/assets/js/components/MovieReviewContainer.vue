@@ -2,12 +2,13 @@
   <div>
     <review-form v-if="isCurrentStage('init')" v-on:changeStage="setStage"></review-form>
 
-    <div v-if="isCurrentStage('result')">Result stage.</div>
+    <review-results v-if="isCurrentStage('result')"></review-results>
   </div>
 </template>
 
 <script>
   import ReviewForm from './ReviewForm.vue';
+  import ReviewResults from './ReviewResults.vue';
 
   export default {
     data() {
@@ -30,6 +31,6 @@
       this.setStage('init');
     },
 
-    components: { ReviewForm }
+    components: { ReviewForm, ReviewResults }
   }
 </script>
