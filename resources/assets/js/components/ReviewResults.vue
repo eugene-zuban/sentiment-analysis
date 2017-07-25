@@ -6,16 +6,14 @@
       </div>
 
       <div class="panel-body">
-        <blockquote>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
-        </blockquote>
+        <blockquote>{{ reviewResults.submittedReview }}</blockquote>
 
         <p>
-          <strong>This review is: </strong>positive
+          <strong>This review is: </strong>{{ reviewResults.predictedClass }}
         </p>
 
         <p>
-          <strong>Probability: </strong>80.0%
+          <strong>Probability: </strong>{{ reviewResults.predictionProbability }}
         </p>
       </div>
 
@@ -32,5 +30,25 @@
 </template>
 
 <script>
+  export default {
+    date() {
+      return {
+        reviewResults: {},
+      }
+    },
 
+    methods: {
+      mockReviewResults() {
+        return {
+          submittedReview: 'This movie is amazing',
+          predictionProbability: '80.5%',
+          predictedClass: 'positive',
+        };
+      }
+    },
+
+    created: function () {
+      this.reviewResults = this.mockReviewResults();
+    },
+  }
 </script>
