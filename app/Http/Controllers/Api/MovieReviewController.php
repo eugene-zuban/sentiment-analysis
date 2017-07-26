@@ -31,9 +31,9 @@ class MovieReviewController extends Controller
 
         return response()->json(
             [
-                'submittedReview' => $review,
-                'prediction' => '',
-                'probability' => ''
+                'providedReview' => $review,
+                'predictedClass' => '',
+                'predictedProbability' => ''
             ]
         );
     }
