@@ -30,6 +30,7 @@
           .then((response) => {
             console.log(response.data);
             this.$emit('changeStage', 'result');
+            this.$emit('reviewProcessed', response.data);
           })
           .catch((error) => {
             if (error.response.data.review) {

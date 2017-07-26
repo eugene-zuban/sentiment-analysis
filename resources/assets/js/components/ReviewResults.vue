@@ -6,14 +6,14 @@
       </div>
 
       <div class="panel-body">
-        <blockquote>{{ reviewAnalyze.providedReview }}</blockquote>
+        <blockquote>{{ predictionResults.providedReview }}</blockquote>
 
         <p>
-          <strong>This review is: </strong>{{ reviewAnalyze.predictedClass }}
+          <strong>This review is: </strong>{{ predictionResults.predictedClass }}
         </p>
 
         <p>
-          <strong>Probability: </strong>{{ reviewAnalyze.predictedProbability }}
+          <strong>Probability: </strong>{{ predictionResults.predictedProbability }}
         </p>
       </div>
 
@@ -33,22 +33,14 @@
   export default {
     date() {
       return {
-        reviewAnalyze: {},
+        predictionResults: {
+          providedReview: '',
+          predictedProbability: '',
+          predictedClass: '',
+        },
       }
     },
 
-    methods: {
-      mockReviewResults() {
-        return {
-          providedReview: 'This movie is amazing',
-          predictedProbability: '80.5%',
-          predictedClass: 'positive',
-        };
-      }
-    },
-
-    created: function () {
-      this.reviewAnalyze = this.mockReviewResults();
-    },
+    props: ['predictionResults'],
   }
 </script>

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <review-form v-if="isCurrentStage('init')" v-on:changeStage="setStage"></review-form>
+    <review-form v-if="isCurrentStage('init')" v-on:changeStage="setStage" v-on:reviewProcessed="setPredictionResults"></review-form>
 
-    <review-results v-if="isCurrentStage('result')"></review-results>
+    <review-results :review-analyze="predictionResults" v-if="isCurrentStage('result')"></review-results>
   </div>
 </template>
 
@@ -13,7 +13,8 @@
   export default {
     data() {
       return {
-        stage: ''
+        stage: '',
+        predictionResults: {},
       };
     },
 
@@ -24,6 +25,10 @@
 
       setStage(stage) {
         this.stage = stage;
+      },
+
+      setPredictionResults(results) {
+        this.predictionResults = results;
       }
     },
 
