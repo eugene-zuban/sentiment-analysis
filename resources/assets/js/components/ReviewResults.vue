@@ -48,7 +48,7 @@
     },
 
     created: function () {
-      this.reviewPrediction = this.mockReviewResults();
+      this.reviewAnalyze = this.mockReviewResults();
     },
   }
 </script>
