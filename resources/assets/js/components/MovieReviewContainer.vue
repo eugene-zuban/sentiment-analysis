@@ -2,7 +2,7 @@
   <div>
     <review-form v-if="isCurrentStage('init')" v-on:changeStage="setStage" v-on:reviewProcessed="setPredictionResults"></review-form>
 
-    <review-results :review-analyze="predictionResults" v-if="isCurrentStage('result')"></review-results>
+    <review-results :prediction-results="predictionResults" v-if="isCurrentStage('result')"></review-results>
   </div>
 </template>
 
