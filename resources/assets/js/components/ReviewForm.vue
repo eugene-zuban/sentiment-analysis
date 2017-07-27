@@ -28,7 +28,6 @@
       sendReview() {
         axios.post('/api/movie-review', {review: this.review})
           .then((response) => {
-            console.log(response.data);
             this.$emit('changeStage', 'result');
             this.$emit('reviewProcessed', response.data);
           })

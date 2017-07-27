@@ -24,7 +24,7 @@
     </div>
 
     <p>
-      <button type="button" class="btn btn-primary">Submit another review</button>
+      <button @click="showMovieReviewForm()" type="button" class="btn btn-primary">Submit another review</button>
     </p>
   </div>
 </template>
@@ -38,6 +38,12 @@
           predictedProbability: '',
           predictedClass: '',
         },
+      }
+    },
+
+    methods: {
+      showMovieReviewForm() {
+        this.$emit('changeStage', 'init');
       }
     },
 
