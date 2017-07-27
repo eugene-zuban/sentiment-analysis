@@ -1,13 +1,13 @@
 <template>
   <div>
     <review-form v-if="isCurrentStage('init')"
-                 v-on:changeStage="setStage"
-                 v-on:reviewProcessed="setPredictionResults">
+                 @changeStage="setStage"
+                 @reviewProcessed="setPredictionResults">
 
     </review-form>
 
     <review-results v-if="isCurrentStage('result')"
-                    v-on:changeStage="setStage"
+                    @changeStage="setStage"
                     :prediction-results="predictionResults" >
 
     </review-results>
