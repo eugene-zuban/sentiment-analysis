@@ -6,8 +6,12 @@
     <div class="panel-body">
       <form @submit.prevent="sendReview">
         <div class="form-group">
-          <textarea id="review-input" class="form-control" rows="3"
-                    placeholder="Movie review minimum 15 characters length" v-model="review"></textarea>
+          <textarea id="review-input"
+                    class="form-control"
+                    rows="3"
+                    placeholder="Movie review minimum 15 characters length"
+                    v-model="review">
+          </textarea>
         </div>
 
         <button type="submit" class="btn btn-primary" :disabled="isSubmitDisabled()">Send Review</button>
