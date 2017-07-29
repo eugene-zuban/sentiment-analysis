@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Services;
+namespace App\Services;
 
 /**
  * Class MovieReviewAnalyzer a service class for analyzing text reviews.
@@ -9,8 +9,16 @@ namespace app\Services;
  */
 class MovieReviewAnalyzer
 {
-    public function analyzeReview()
+    /**
+     * @param string $textReview
+     * @return object
+     */
+    public function analyze($textReview)
     {
-        //TODO: implement method
+        return (object) [
+            'providedReview' => $textReview,
+            'predictedClass' => 'positive',
+            'predictedProbability' => '80.0%',
+        ];
     }
 }
