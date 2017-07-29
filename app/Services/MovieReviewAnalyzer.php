@@ -3,11 +3,11 @@
 namespace app\Services;
 
 /**
- * Class MovieReviewAnalysis a service class for analyzing text reviews.
+ * Class MovieReviewAnalyzer a service class for analyzing text reviews.
  *
  * @package app\Services
  */
-class MovieReviewAnalysis
+class MovieReviewAnalyzer
 {
     public function analyzeReview()
     {
