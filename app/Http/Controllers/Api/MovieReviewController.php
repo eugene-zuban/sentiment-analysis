@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Requests\Api\AddMovieReviewRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\ProcessMovieReviewRequest;
-use App\Services\MovieReviewAnalyzer;
+use App\MovieReview\ReviewAnalyzer;
 
 class MovieReviewController extends Controller
 {
@@ -24,12 +24,12 @@ class MovieReviewController extends Controller
      * Process review form submission.
      *
      * @param ProcessMovieReviewRequest $request
-     * @param MovieReviewAnalyzer $reviewAnalyzer
+     * @param ReviewAnalyzer $reviewAnalyzer
      * @return \Illuminate\Http\Response
      */
     public function post(
         ProcessMovieReviewRequest $request,
-        MovieReviewAnalyzer $reviewAnalyzer
+        ReviewAnalyzer $reviewAnalyzer
     ) {
         $processedReview = $reviewAnalyzer->analyze($request->input('review'));
 

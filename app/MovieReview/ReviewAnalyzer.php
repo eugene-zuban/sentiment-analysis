@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Services;
+namespace App\MovieReview;
 
 /**
- * Class MovieReviewAnalyzer a service class for analyzing text reviews.
+ * Class ReviewAnalyzer a service class for analyzing text reviews.
  *
  * @package app\Services
  */
-class MovieReviewAnalyzer
+class ReviewAnalyzer
 {
     /**
      * @param string $textReview
