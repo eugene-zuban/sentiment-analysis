@@ -31,7 +31,7 @@ class MovieReviewController extends Controller
         ProcessMovieReviewRequest $request,
         ReviewAnalyzer $reviewAnalyzer
     ) {
-        $processedReview = $reviewAnalyzer->analyze($request->input('review'));
+        $processedReview = $reviewAnalyzer->classify($request->input('review'));
 
         return response()->json($processedReview);
     }

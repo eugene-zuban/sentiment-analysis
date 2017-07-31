@@ -13,7 +13,7 @@ class ReviewAnalyzer
      * @param string $textReview
      * @return object
      */
-    public function analyze($textReview)
+    public function classify($textReview)
     {
         return (object) [
             'providedReview' => $textReview,
