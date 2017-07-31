@@ -1,6 +1,6 @@
 <?php
 
-namespace app\MovieReview;
+namespace App\MovieReview;
 
 class ClassifiedReview
 {
