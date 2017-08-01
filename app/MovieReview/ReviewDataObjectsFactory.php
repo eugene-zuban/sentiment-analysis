@@ -23,6 +23,6 @@ class ReviewDataObjectsFactory
      */
     public function makeEmptyClassifiedReview()
     {
-        return new ClassifiedReview();
+        return new ClassifiedReview($this->makeEmptyReview());
     }
 }
