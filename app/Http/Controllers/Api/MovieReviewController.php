@@ -6,6 +6,7 @@ use App\Http\Requests\Api\AddMovieReviewRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\ProcessMovieReviewRequest;
 use App\MovieReview\ReviewAnalyzer;
+use App\Transformers\ClassifiedReviewTransformer;
 
 class MovieReviewController extends Controller
 {
@@ -25,14 +26,16 @@ class MovieReviewController extends Controller
      *
      * @param ProcessMovieReviewRequest $request
      * @param ReviewAnalyzer $reviewAnalyzer
+     * @param ClassifiedReviewTransformer $transformer
      * @return \Illuminate\Http\Response
      */
     public function post(
         ProcessMovieReviewRequest $request,
-        ReviewAnalyzer $reviewAnalyzer
+        ReviewAnalyzer $reviewAnalyzer,
+        ClassifiedReviewTransformer $transformer
     ) {
         $processedReview = $reviewAnalyzer->classify($request->input('review'));
 
-        return response()->json($processedReview);
+        return response()->json($transformer->transform($processedReview));
     }
 }
