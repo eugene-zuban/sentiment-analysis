@@ -38,7 +38,7 @@ class ReviewAnalyzerTest extends TestCase
 
         $factory
             ->shouldReceive('makeUsingClassifierOutput')
-            ->andReturn($this->mockEmptyClassifiedReview());
+            ->andReturn($this->mockClassifiedReview());
 
         return $factory;
     }
@@ -46,7 +46,7 @@ class ReviewAnalyzerTest extends TestCase
     /**
      * @return ClassifiedReview
      */
-    protected function mockEmptyClassifiedReview()
+    protected function mockClassifiedReview()
     {
         $classifiedReview = \Mockery::mock(ClassifiedReview::class);
 
