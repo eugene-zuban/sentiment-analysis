@@ -32,24 +32,23 @@ class ReviewAnalyzer
      */
     public function classify($unsafeReview)
     {
-        $classifierOutput =
-            $this->classifyUsingPythonApp(escapeshellcmd($unsafeReview));
+        $classifierOutput = $this->classifyUsingPythonApp($unsafeReview);
 
         return
             $this->reviewFactory->makeUsingClassifierOutput($classifierOutput);
     }
 
     /**
-     * @param string $cleanReview
+     * @param string $review
      * @return \stdClass
      */
-    protected function classifyUsingPythonApp($cleanReview)
+    protected function classifyUsingPythonApp($review)
     {
         $process = new Process("~/anaconda3/bin/python pylibs/app.py");
 
         $process->setWorkingDirectory(base_path());
 
-        $process->setInput($cleanReview);
+        $process->setInput($review);
 
         $process->run();
 
