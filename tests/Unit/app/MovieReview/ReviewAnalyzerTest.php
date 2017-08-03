@@ -37,7 +37,7 @@ class ReviewAnalyzerTest extends TestCase
         $factory = \Mockery::mock(ReviewDataObjectsFactory::class);
 
         $factory
-            ->shouldReceive('makeEmptyClassifiedReview')
+            ->shouldReceive('makeUsingClassifierOutput')
             ->andReturn($this->mockEmptyClassifiedReview());
 
         return $factory;
