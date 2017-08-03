@@ -2,6 +2,8 @@
 
 namespace App\MovieReview;
 
+use Symfony\Component\Process\Process;
+
 /**
  * Class ReviewAnalyzer a service class for analyzing text reviews.
  *
@@ -25,12 +27,33 @@ class ReviewAnalyzer
     /**
      * Classify the provided text review using saved logistic regression model
      *
-     * @param string $textReview
+     * @param string $unsafeReview
      * @return ClassifiedReview
      */
-    public function classify($textReview)
+    public function classify($unsafeReview)
     {
-        return $this->getDummyClassifiedReview($textReview);
+        $classifierOutput =
+            $this->classifyUsingPythonApp(escapeshellcmd($unsafeReview));
+
+        return
+            $this->reviewFactory->makeUsingClassifierOutput($classifierOutput);
+    }
+
+    /**
+     * @param string $cleanReview
+     * @return \stdClass
+     */
+    protected function classifyUsingPythonApp($cleanReview)
+    {
+        $process = new Process("~/anaconda3/bin/python pylibs/app.py");
+
+        $process->setWorkingDirectory(base_path());
+
+        $process->setInput($cleanReview);
+
+        $process->run();
+
+        return json_decode($process->getOutput());
     }
 
     /**

@@ -25,4 +25,21 @@ class ReviewDataObjectsFactory
     {
         return new ClassifiedReview($this->makeEmptyReview());
     }
+
+    /**
+     * @param \stdClass $classifierOutput
+     * @return \App\MovieReview\ClassifiedReview
+     */
+    public function makeUsingClassifierOutput($classifierOutput)
+    {
+        $review = new ClassifiedReview($this->makeEmptyReview());
+
+        $review->setProvidedReviewText($classifierOutput->review);
+
+        $review->setPredictedClass($classifierOutput->is_positive);
+
+        $review->setPredictedProbability($classifierOutput->probability);
+
+        return $review;
+    }
 }
