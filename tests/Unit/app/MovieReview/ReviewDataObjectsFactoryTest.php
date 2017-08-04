@@ -43,4 +43,23 @@ class ReviewDataObjectsFactoryTest extends TestCase
             $this->factory->makeEmptyClassifiedReview()
         );
     }
+
+    public function testMakeUsingClassifierOutputMethod()
+    {
+        $data = (object) [
+            'review' => 'This is a review',
+            'is_positive' => false,
+            'probability' => '20.33',
+        ];
+
+        $expectedReview = $this->factory->makeEmptyClassifiedReview();
+        $expectedReview->setProvidedReviewText($data->review);
+        $expectedReview->setPredictedClass($data->is_positive);
+        $expectedReview->setPredictedProbability($data->probability);
+
+        $this->assertEquals(
+            $expectedReview,
+            $this->factory->makeUsingClassifierOutput($data)
+        );
+    }
 }
