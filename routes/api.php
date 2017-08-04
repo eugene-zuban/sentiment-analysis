@@ -21,5 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  * Public available resources
  */
 Route::group(['namespace' => 'Api', 'middleware' => ['api']], function () {
-   Route::post('movie-review', ['uses' => 'MovieReviewController@post']);
+    Route::post('add-movie-review', ['uses' => 'MovieReviewController@store']);
+    Route::post('process-movie-review', ['uses' => 'MovieReviewController@post']);
 });

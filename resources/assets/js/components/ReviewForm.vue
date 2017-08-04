@@ -30,7 +30,7 @@
 
     methods: {
       sendReview() {
-        axios.post('/api/movie-review', {review: this.review})
+        axios.post('/api/process-movie-review', {review: this.review})
           .then((response) => {
             this.$emit('changeStage', 'result');
             this.$emit('reviewProcessed', response.data);

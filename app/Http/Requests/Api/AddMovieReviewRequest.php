@@ -24,7 +24,8 @@ class AddMovieReviewRequest extends FormRequest
     public function rules()
     {
         return [
-            'review' => 'required|string|min:15',
+            'reviewText' => 'required|string|min:15',
+            'sentiment' => 'required|bool',
         ];
     }
 }
