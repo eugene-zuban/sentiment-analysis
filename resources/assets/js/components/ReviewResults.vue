@@ -18,8 +18,8 @@
       </div>
 
       <div class="panel-footer">
-        <button type="button" class="btn btn-success">Correct</button>
-        <button type="button" class="btn btn-warning">Incorrect</button>
+        <button type="button" class="btn btn-success" @click="correctPrediction()">Correct</button>
+        <button type="button" class="btn btn-warning" @click="incorrectPrediction()">Incorrect</button>
       </div>
     </div>
 
@@ -43,6 +43,29 @@
 
     methods: {
       showMovieReviewForm() {
+        this.$emit('changeStage', 'init');
+      },
+
+      correctPrediction() {
+        this.sendFeedback(this.predictionResults.providedReview, true);
+      },
+
+      incorrectPrediction() {
+        this.sendFeedback(this.predictionResults.providedReview, false);
+      },
+
+      sendFeedback(reviewText, isPositive) {
+        axios.post('/api/add-movie-reviews', {
+            reviewText: reviewText,
+            sentiment: isPositive,
+          })
+          .then(() => {
+            window.showAlert('Thank you for your feedback!');
+          })
+          .catch(() => {
+            window.showAlert('Oops, something went wrong...', 'danger');
+          });
+
         this.$emit('changeStage', 'init');
       }
     },
