@@ -56,18 +56,4 @@ class ReviewAnalyzer
 
         return json_decode($process->getOutput());
     }
-
-    /**
-     * @param string $textReview
-     * @return \App\MovieReview\ClassifiedReview
-     */
-    protected function getDummyClassifiedReview($textReview)
-    {
-        $classifiedReview = $this->reviewFactory->makeEmptyClassifiedReview();
-        $classifiedReview->setProvidedReviewText($textReview);
-        $classifiedReview->setPredictedClass(true);
-        $classifiedReview->setPredictedProbability(80.99);
-
-        return $classifiedReview;
-    }
 }
