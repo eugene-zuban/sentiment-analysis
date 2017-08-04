@@ -55,7 +55,7 @@
       },
 
       sendFeedback(reviewText, isPositive) {
-        axios.post('/api/add-movie-reviews', {
+        axios.post('/api/add-movie-review', {
             reviewText: reviewText,
             sentiment: isPositive,
           })
