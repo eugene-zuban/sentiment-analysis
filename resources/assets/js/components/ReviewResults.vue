@@ -47,11 +47,17 @@
       },
 
       correctPrediction() {
-        this.sendFeedback(this.predictionResults.providedReview, true);
+        this.sendFeedback(
+          this.predictionResults.providedReview,
+          this.predictionResults.predictedClass == 'positive' ? 1 : 0
+        );
       },
 
       incorrectPrediction() {
-        this.sendFeedback(this.predictionResults.providedReview, false);
+        this.sendFeedback(
+          this.predictionResults.providedReview,
+          this.predictionResults.predictedClass == 'positive' ? 0 : 1
+        );
       },
 
       sendFeedback(reviewText, isPositive) {
