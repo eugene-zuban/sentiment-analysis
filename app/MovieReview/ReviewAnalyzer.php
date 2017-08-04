@@ -44,7 +44,9 @@ class ReviewAnalyzer
      */
     protected function classifyUsingPythonApp($review)
     {
-        $process = new Process("~/anaconda3/bin/python pylibs/app.py");
+        $python = config('app.python_path');
+
+        $process = new Process("{$python} pylibs/app.py");
 
         $process->setWorkingDirectory(base_path());
 

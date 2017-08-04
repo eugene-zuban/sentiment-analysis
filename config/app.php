@@ -228,4 +228,5 @@ return [
 
     ],
 
+    'python_path' => env('PYTHON_BIN_PATH'),
 ];
