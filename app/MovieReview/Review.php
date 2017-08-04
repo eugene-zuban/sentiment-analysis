@@ -11,7 +11,7 @@ class Review extends Model
      */
     public function setText($reviewText)
     {
-        $this->text = $reviewText;
+        $this->review = $reviewText;
     }
 
     /**
@@ -19,7 +19,7 @@ class Review extends Model
      */
     public function getText()
     {
-        return $this->text;
+        return $this->review;
     }
 
     /**
