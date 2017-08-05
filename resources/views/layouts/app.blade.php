@@ -7,7 +7,7 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Machine Learning: Movie Classifier') }}</title>
+        <title>Natural Language Processing: Sentiment Analysis.</title>
 
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
         <link rel="icon" type="image/png" href="favicon.png">
@@ -17,9 +17,13 @@
         <div id="app">
             @include('layouts.nav')
 
-            @yield('content')
-        </div>
+            <div class="container">
+                @yield('content')
 
+                <hr>
+                @include('footer')
+            </div>
+        </div>
         <script src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>
