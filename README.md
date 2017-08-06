@@ -2,7 +2,7 @@
 Implementing a Sentiment Analysis Machine Learning model in Python and integrating it into a Laravel project.
 
 ## About the project.
-After reading Sebastian Rashka's Python Machine Learning book, 
+After reading Sebastian Raschka's Python Machine Learning book, 
 I decided to implement a Sentiment Analysis movie review classifier on Python and use Laravel for working with it.
 Laravel provides API endpoints for working with the classifier, and Vuejs serves the frontend part, 
 so the result is pretty interesting. 
