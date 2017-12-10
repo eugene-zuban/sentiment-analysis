@@ -1,16 +1,16 @@
 # Natural Language Processing: Sentiment Analysis.
-Implementing a Sentiment Analysis Machine Learning model in Python and integrating it into a Laravel project.
+Implementing Sentiment Analysis Machine Learning model in Python and integrating the model into the Laravel project.
 
 Live example is available online at my web site https://movie-review-analyzer.zuban.us/
 
 ## About the project.
-After reading Sebastian Raschka's Python Machine Learning book, 
-I decided to implement a Sentiment Analysis movie review classifier on Python and use Laravel for working with it.
-Laravel provides API endpoints for working with the classifier, and Vuejs serves the frontend part, 
-so the result is pretty interesting. 
+After reading the Sebastian Raschka's Python Machine Learning book, 
+I decided to implement a Sentiment Analysis movie review classifier on Python and to use Laravel for comminicating with it.
+Laravel provides API endpoints for working with the classifier where Vuejs serves the frontend part, 
+and the overall result is pretty interesting. 
 
-I made this project just for practicing, and there is no "real-world" usage of it. 
-It is just an example of how to embed a trainedmachine learning model into a non-python web app.
+I made this project only for practicing, there is no "real-world" usage of it. 
+The project is just an example of how to embed a trained machine learning model into a non-python web app.
 
 ## Installation instruction is for Laravel Homestead.
 Currently, the project uses Laravel 5.4. More about homestead https://laravel.com/docs/5.4/homestead
@@ -35,16 +35,15 @@ touch project_dir/storage/db/review_db.sqlite
 DB_DATABASE={path_to_the_project_root}/storage/db/review_db.sqlite
 PYTHON_BIN_PATH="~vagrant/anaconda3/bin/python"
 ```
-Use a correct path instead of `{path_to_the_project_root}`
+Use correct path instead of `{path_to_the_project_root}`
 
 5. Run `artisan migrate` from the web project root.
 
 ## Updating the classifier:
-in project root dir: `python pylibs/update.py`
-`update.py` uses users fedbacks from `review_db.sqlite` for updating the trained model.
-Every time user submits a review, the user can leave a feedback about the users' movie review prediction. 
-We can use those feedbacks for better train our model.
-But, it is better to check the feedbacks first and remove incorrect predictions.
+in the project root dir: `python pylibs/update.py`
+the `update.py` uses users fedbacks from `review_db.sqlite` for updating the model.
+Every time a user submits a review, the user can leave a feedback about the predicted review by the model. 
+Those feedbacks can be used for further model training.
 
 
 ## Software versions
